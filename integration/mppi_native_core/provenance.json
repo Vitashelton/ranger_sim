@@ -1,0 +1,9 @@
+{
+  "abi": 1,
+  "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "sha256": {
+    "core.cpp": "f24cd6e7e8ab7bd618fab2dab032998d0e981ffea1c7f42e21f5cd4f98bc2805",
+    "CMakeLists.txt": "88b654334db64029e745876c68d9a8fa6a5869bac4d5704f8dec97bf58a9fd7e",
+    "build/libranger_mppi_native.so": "6a79244e6e0b9f888aee73bc6ee61507453ae7538cc000993959000e22e0c7e3"
+  }
+}

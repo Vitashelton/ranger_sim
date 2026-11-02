@@ -1,0 +1,28 @@
+# Suggested batch trials for later automation.
+# This file is a design template; use it to script repeated experiments.
+
+methods:
+  - Manual
+  - Stop-only
+  - Rule-limit
+  - Ours
+
+human_modes:
+  - center
+  - right_bias
+  - left_bias
+  - sine
+
+doorway_widths:
+  - 1.10
+  - 1.20
+  - 1.35
+
+initial_lateral_offsets:
+  - -0.25
+  - -0.10
+  - 0.00
+  - 0.10
+  - 0.25
+
+recommended_repetitions_per_setting: 10

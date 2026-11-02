@@ -1,0 +1,55 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1.0
+      Plane: XY
+      Reference Frame: odom
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+    - Class: rviz_default_plugins/Odometry
+      Name: RangerMini odom
+      Enabled: true
+      Topic:
+        Value: /odom
+      Shape: Arrow
+      Color: 0; 85; 255
+    - Class: rviz_default_plugins/Marker
+      Name: Robot footprint
+      Enabled: true
+      Topic:
+        Value: /debug/robot_footprint
+    - Class: rviz_default_plugins/MarkerArray
+      Name: RangerMini2 steer modules
+      Enabled: true
+      Topic:
+        Value: /debug/rangermini2_steer_modules
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Corridor semantics and risk zones
+      Enabled: true
+      Topic:
+        Value: /debug/corridor_markers
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Raw / rejected / selected rollouts
+      Enabled: true
+      Topic:
+        Value: /debug/candidate_paths
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Task-conditioned sparse landmarks
+      Enabled: true
+      Topic:
+        Value: /task_landmark_markers
+    - Class: rviz_default_plugins/Path
+      Name: Executed path
+      Enabled: true
+      Topic:
+        Value: /debug/executed_path
+      Color: 25; 120; 255
+  Global Options:
+    Fixed Frame: odom
+  Name: root

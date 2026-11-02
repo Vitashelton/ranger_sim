@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rangermini_dynamic_semantic</name>
+  <version>0.20.0</version>
+  <description>Gazebo Fortress + ROS 2 Humble dynamic indoor semantic-maintenance benchmark for RangerMini 2.0.</description>
+  <maintainer email="harry_vancepoy@mail.com">Harry</maintainer>
+  <license>MIT</license>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>rosgraph_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_msgs</depend>
+  <depend>xacro</depend>
+  <depend>ament_index_python</depend>
+  <depend>ros_gz_interfaces</depend>
+
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>livox_ros_driver2</exec_depend>
+  <exec_depend>pointcloud_to_laserscan</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-cloudpickle</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

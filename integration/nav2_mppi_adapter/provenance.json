@@ -1,0 +1,20 @@
+{
+  "upstream": "https://github.com/ros-navigation/navigation2",
+  "installed_package": "nav2_mppi_controller",
+  "version": "1.1.20",
+  "motion_model": "Omni",
+  "optimizer_and_critics_modified": false,
+  "vy_max_m_s": 0.35,
+  "vy_std_m_s": 0.18,
+  "regenerate_noises": false,
+  "reference": "Shared registered local reference and heading; retained heading encoded in path orientations",
+  "execution": "Nearest native-command conversion followed by shared Ranger finite-rate adapter; raw/native/executed commands retained",
+  "seed": "Episode seed applied to xtensor default RNG before optimizer initialization; fixed-observation fresh-process first solve verified by check_seed.py. Closed-loop ROS/Gazebo replay is not bitwise deterministic.",
+  "sha256": {
+    "/home/USER/ranger_sim_ws/integration/nav2_mppi_adapter/bridge.cpp": "447ef789d64e0542847fb99196b64e2ae949be6a907490797aaeb425a941ba47",
+    "/home/USER/ranger_sim_ws/integration/nav2_mppi_adapter/CMakeLists.txt": "53009cebc77c15bce0b45b811851e2d52dc6a4199aceca3cc7dc5fcf18a66b11",
+    "/home/USER/ranger_sim_ws/integration/nav2_mppi_adapter/build/libranger_nav2_mppi.so": "f8286f755a0f8d963837ce55d2e4bc8f357e22f3d519a32acc1922f59fe661cf",
+    "/opt/ros/humble/lib/libmppi_controller.so": "a43e86cb395940e9092fb014475fb18e50784e8de65937709c02914aaac6c765",
+    "/opt/ros/humble/lib/libmppi_critics.so": "570f0e692329a00721140320b126c336ea56e322bb806c66d3dac2a4196e6f7b"
+  }
+}

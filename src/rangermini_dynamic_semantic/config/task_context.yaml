@@ -1,0 +1,9 @@
+task_id: delivery_001
+task_type: delivery
+target: parcel_red
+target_region: storage
+priority_objects:
+  - parcel_red
+  - free_path
+failure_policy: reroute
+

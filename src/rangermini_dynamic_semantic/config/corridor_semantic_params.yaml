@@ -1,0 +1,44 @@
+corridor_semantic_filter:
+  ros__parameters:
+    robot_radius: 0.45
+    safe_distance: 0.20
+    risk_sigma: 0.32
+    horizon: 1.80
+    dt: 0.10
+    lambda_risk: 0.75
+    w_human: 0.35
+    w_goal: 2.40
+    w_route: 3.80
+    w_target: 0.45
+    w_center: 0.12
+    w_progress: 1.40
+    max_vx: 0.70
+    max_vy: 0.50
+    max_wz: 0.70
+    corridor_ymin: 0.00
+    corridor_ymax: 5.00
+    corridor_center_y: 2.50
+    goal_x: 13.35
+    goal_y: 4.15
+    route_xs: [4.80, 8.60, 10.80, 12.20, 13.35]
+    route_ys: [2.35, 2.85, 3.80, 3.95, 4.15]
+    target_room: "906"
+    target_door_material: "glass"
+    display_stride: 6
+
+corridor_markers:
+  ros__parameters:
+    target_room: "906"
+    target_door_material: "glass"
+    show_inflation: true
+    inflation_margin: 0.65
+    goal_y: 4.15
+
+corridor_semantic_memory_node:
+  ros__parameters:
+    target_room: "906"
+    target_material: "glass"
+    target_label: "door_front"
+    input_topic: "/semantic_detections_json"
+    target_pose_topic: "/semantic_target_pose"
+    debug_topic: "/semantic_memory_debug"

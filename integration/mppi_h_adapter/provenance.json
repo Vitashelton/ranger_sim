@@ -1,0 +1,52 @@
+{
+  "upstream_url": "https://github.com/MizuhoAOKI/mppi_swerve_drive_ros",
+  "upstream_commit": "5b53b4b2cf06fe37a31095d6c12cf695075d7705",
+  "solver_cpp_modified": false,
+  "header_substitutions": [
+    {
+      "file": "common_type.hpp",
+      "before_sha256": "cc45e02c53b849ba3b7f6b9ce1b8ae97b2ff10870df83dd9ee1f56d6b536e463",
+      "after_sha256": "15a8c93a0c1897bf61ff890529e17122fde1a9c3dcd8d320994a659742ccf051",
+      "change": "Ranger speed limits and nearest native-mode projection in rollout and command conversion; shared by 3D and 4D"
+    },
+    {
+      "file": "mode1_mppi_3d/mppi_3d_setting.hpp",
+      "before_sha256": "f19fb16a29125cdee6c73853bd421c160b4c4a57b9f398e8e95b1cb520ef3a12",
+      "after_sha256": "9a6894af4e1b746d35988c9d4ed6987d11658570d354111f548a460d98ab2180",
+      "change": "Ranger speed limits and nearest native-mode projection in rollout and command conversion; shared by 3D and 4D"
+    },
+    {
+      "file": "mode2_mppi_4d/mppi_4d_setting.hpp",
+      "before_sha256": "69574afdae7e251e924ab22a166889eede0b4a14c9f591d8381abfbff45e900c",
+      "after_sha256": "46e2d6b909c784d3dfd382e339cf1c7b3abb59bcd1b5ccaad17fdf2c28c01add",
+      "change": "Ranger speed limits and nearest native-mode projection in rollout and command conversion; shared by 3D and 4D"
+    }
+  ],
+  "grid_interface": "row-major grid view: nearest and bilinear interpolation",
+  "random_seed": "episode seed, default upstream 623 exposed as parameter",
+  "threads": 1,
+  "seed_header_change": "const seed 623 exposed through constructor-time bridge variable",
+  "binary_sha256": "20a6bcd5cec378bbe6163205b747358443ea9c62f9f350b306ea7c58d0e318f8",
+  "build_command": [
+    "g++",
+    "-O3",
+    "-DNDEBUG",
+    "-std=c++17",
+    "-shared",
+    "-fPIC",
+    "-fopenmp",
+    "-include",
+    "chrono",
+    "-include",
+    "numeric",
+    "-I/usr/include/eigen3",
+    "-I/home/USER/ranger_sim_ws/integration/mppi_h_adapter/compat",
+    "-I/home/USER/ranger_sim_ws/integration/mppi_h_adapter/build/include",
+    "/home/USER/ranger_sim_ws/integration/mppi_h_adapter/bridge.cpp",
+    "/home/USER/ranger_sim_ws/integration/mppi_h_upstream/src/control/mppi_h/src/mppi_h_core.cpp",
+    "/home/USER/ranger_sim_ws/integration/mppi_h_upstream/src/control/mppi_h/src/mode1_mppi_3d/mppi_3d_core.cpp",
+    "/home/USER/ranger_sim_ws/integration/mppi_h_upstream/src/control/mppi_h/src/mode2_mppi_4d/mppi_4d_core.cpp",
+    "-o",
+    "/home/USER/ranger_sim_ws/integration/mppi_h_adapter/build/libmppi_h.so"
+  ]
+}

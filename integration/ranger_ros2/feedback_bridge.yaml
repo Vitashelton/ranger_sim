@@ -1,0 +1,10 @@
+ranger_mppi_feedback_bridge:
+  ros__parameters:
+    # Planner order: front-left, front-right, rear-left, rear-right.
+    # Confirm SDK channel-to-wheel order on the actual chassis.
+    wheel_ids: [4, 5, 6, 7]
+    angle_scales: [1.0, 1.0, 1.0, 1.0]
+    angle_offsets: [0.0, 0.0, 0.0, 0.0]
+    calibration_ready: false
+    max_feedback_age: 0.5
+    output_topic: /motion_mode_debug

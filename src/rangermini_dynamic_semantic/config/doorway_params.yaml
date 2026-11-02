@@ -1,0 +1,32 @@
+risk_cmd_filter:
+  ros__parameters:
+    robot_radius: 0.34
+    safe_distance: 0.16
+    risk_sigma: 0.24
+    horizon: 1.35
+    dt: 0.10
+    lambda_risk: 0.65
+    w_vx: 0.8
+    w_vy: 1.1
+    w_wz: 0.4
+    w_center: 5.0
+    w_progress: 1.2
+    max_vx: 0.50
+    max_vy: 0.35
+    max_wz: 0.8
+    doorway_width: 1.10
+    wall_ymin: 1.10
+    wall_ymax: 1.45
+    world_half_width: 3.20
+    goal_y: 2.75
+    door_center_x: 0.0
+    corridor_half_width: 0.58
+    display_stride: 4
+
+doorway_markers:
+  ros__parameters:
+    doorway_width: 1.10
+    wall_ymin: 1.10
+    wall_ymax: 1.45
+    world_half_width: 3.20
+    corridor_half_width: 0.58

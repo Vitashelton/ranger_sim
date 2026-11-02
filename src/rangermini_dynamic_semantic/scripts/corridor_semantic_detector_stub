@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+from rangermini_dynamic_semantic.corridor_semantic_detector_stub import main
+
+if __name__ == "__main__":
+    main()

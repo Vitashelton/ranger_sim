@@ -1,0 +1,16 @@
+build/
+install/
+log/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+artifacts/
+results/
+.env
+*.db3
+*.mcap
+*.bag
+*.pcd
+*.pdf
+*.zip

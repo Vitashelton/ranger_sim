@@ -1,0 +1,105 @@
+{
+  "schema": "rangermini.places.v1",
+  "scene": "corridor_902_904_906_908",
+  "measured_hardware": false,
+  "notes": "Room identities and features are demo annotations; 902-908 do not assert measured hardware room names.",
+  "places": [
+    {
+      "id": "room_902",
+      "name": "机器人实验室",
+      "side": "left",
+      "door_sign": "902",
+      "aliases": [
+        "实验室",
+        "机器人实验室"
+      ],
+      "features": [
+        "机器人设备",
+        "实验台"
+      ],
+      "neighbors": [
+        "room_904",
+        "room_906",
+        "room_908"
+      ],
+      "pose_source": "illustrative_legacy_corridor_demo",
+      "simulation_pose": null,
+      "object_priors": {
+        "cup": 0.26,
+        "printer": 0.09
+      }
+    },
+    {
+      "id": "room_904",
+      "name": "李老师办公室",
+      "side": "left",
+      "door_sign": "904",
+      "aliases": [
+        "李老师办公室"
+      ],
+      "features": [
+        "办公室门牌",
+        "文件柜"
+      ],
+      "neighbors": [
+        "room_902",
+        "room_906",
+        "room_908"
+      ],
+      "pose_source": "illustrative_legacy_corridor_demo",
+      "simulation_pose": null,
+      "object_priors": {
+        "cup": 0.58,
+        "printer": 0.2
+      }
+    },
+    {
+      "id": "room_906",
+      "name": "茶水间",
+      "side": "right",
+      "door_sign": "906",
+      "aliases": [
+        "茶水间"
+      ],
+      "features": [
+        "饮水设备",
+        "水杯"
+      ],
+      "neighbors": [
+        "room_902",
+        "room_904",
+        "room_908"
+      ],
+      "pose_source": "illustrative_legacy_corridor_demo",
+      "simulation_pose": null,
+      "object_priors": {
+        "cup": 0.68,
+        "water_dispenser": 0.94
+      }
+    },
+    {
+      "id": "room_908",
+      "name": "会议室",
+      "side": "right",
+      "door_sign": "908",
+      "aliases": [
+        "会议室"
+      ],
+      "features": [
+        "会议桌",
+        "投影仪"
+      ],
+      "neighbors": [
+        "room_902",
+        "room_904",
+        "room_906"
+      ],
+      "pose_source": "illustrative_legacy_corridor_demo",
+      "simulation_pose": null,
+      "object_priors": {
+        "projector": 0.88,
+        "cup": 0.25
+      }
+    }
+  ]
+}

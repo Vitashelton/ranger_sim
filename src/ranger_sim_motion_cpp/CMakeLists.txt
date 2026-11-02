@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(ranger_sim_motion_cpp)
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+add_executable(ranger_motion_adapter_cpp src/motion_adapter.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../integration/mppi_native_core/core.cpp)
+target_compile_features(ranger_motion_adapter_cpp PRIVATE cxx_std_17)
+target_compile_options(ranger_motion_adapter_cpp PRIVATE -O3 -Wall -Wextra -Wpedantic)
+ament_target_dependencies(ranger_motion_adapter_cpp rclcpp geometry_msgs std_msgs)
+install(TARGETS ranger_motion_adapter_cpp DESTINATION lib/${PROJECT_NAME})
+ament_package()

@@ -1,0 +1,216 @@
+{
+  "schema": "rangermini.places.v1",
+  "scene": "dynamic_indoor_benchmark",
+  "measured_hardware": false,
+  "notes": "Place semantics are simulated labels; not observed door signs or measured stop poses.",
+  "places": [
+    {
+      "id": "lobby",
+      "name": "接待大厅",
+      "side": "west",
+      "door_sign": "",
+      "aliases": [
+        "lobby",
+        "大厅"
+      ],
+      "features": [
+        "入口接待、区域导览"
+      ],
+      "neighbors": [
+        "office",
+        "receiving"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 3.0,
+        "y": 10.0
+      },
+      "object_priors": {
+        "charging_station": 0.22,
+        "parcel_red": 0.08
+      }
+    },
+    {
+      "id": "office",
+      "name": "办公区",
+      "side": "north",
+      "door_sign": "",
+      "aliases": [
+        "办公室",
+        "办公区"
+      ],
+      "features": [
+        "办公桌、文档交换"
+      ],
+      "neighbors": [
+        "lobby",
+        "inspection"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 5.0,
+        "y": 16.0
+      },
+      "object_priors": {
+        "charging_station": 0.48,
+        "parcel_red": 0.06
+      }
+    },
+    {
+      "id": "inspection",
+      "name": "检修区",
+      "side": "north",
+      "door_sign": "",
+      "aliases": [
+        "实验区",
+        "检修区",
+        "实验室"
+      ],
+      "features": [
+        "设备检查、面板巡检"
+      ],
+      "neighbors": [
+        "office",
+        "storage"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 14.0,
+        "y": 16.0
+      },
+      "object_priors": {
+        "inspection_panel": 0.95,
+        "parcel_red": 0.08
+      }
+    },
+    {
+      "id": "storage",
+      "name": "仓储区",
+      "side": "north",
+      "door_sign": "",
+      "aliases": [
+        "仓库",
+        "仓储区"
+      ],
+      "features": [
+        "货架、物料存放"
+      ],
+      "neighbors": [
+        "inspection",
+        "east_junction"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 25.0,
+        "y": 16.0
+      },
+      "object_priors": {
+        "parcel_red": 0.55,
+        "parcel_blue": 0.14
+      }
+    },
+    {
+      "id": "east_junction",
+      "name": "东侧连廊",
+      "side": "east",
+      "door_sign": "",
+      "aliases": [
+        "东侧连廊",
+        "东侧通道"
+      ],
+      "features": [
+        "上下通道连接"
+      ],
+      "neighbors": [
+        "storage",
+        "loading"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 26.0,
+        "y": 10.0
+      },
+      "object_priors": {
+        "mobile_cart": 0.2
+      }
+    },
+    {
+      "id": "loading",
+      "name": "装卸区",
+      "side": "south",
+      "door_sign": "",
+      "aliases": [
+        "装卸区",
+        "装卸口"
+      ],
+      "features": [
+        "推车、装卸口"
+      ],
+      "neighbors": [
+        "east_junction",
+        "packing"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 25.0,
+        "y": 3.0
+      },
+      "object_priors": {
+        "mobile_cart": 0.64,
+        "parcel_blue": 0.09
+      }
+    },
+    {
+      "id": "packing",
+      "name": "打包区",
+      "side": "south",
+      "door_sign": "",
+      "aliases": [
+        "打包区",
+        "打包间"
+      ],
+      "features": [
+        "打包台、作业桌"
+      ],
+      "neighbors": [
+        "loading",
+        "receiving"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 15.0,
+        "y": 3.0
+      },
+      "object_priors": {
+        "parcel_blue": 0.72,
+        "parcel_red": 0.12
+      }
+    },
+    {
+      "id": "receiving",
+      "name": "收货区",
+      "side": "south",
+      "door_sign": "",
+      "aliases": [
+        "收货区",
+        "收货间"
+      ],
+      "features": [
+        "货物暂存、入口"
+      ],
+      "neighbors": [
+        "packing",
+        "lobby"
+      ],
+      "pose_source": "simulated_yaml_region_center",
+      "simulation_pose": {
+        "x": 5.0,
+        "y": 3.0
+      },
+      "object_priors": {
+        "parcel_red": 0.73,
+        "parcel_blue": 0.1
+      }
+    }
+  ]
+}

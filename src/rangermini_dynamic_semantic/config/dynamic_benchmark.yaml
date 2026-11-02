@@ -1,0 +1,64 @@
+benchmark_name: dynamic_indoor_semantic_maintenance
+cycle_sec: 180.0
+
+initial_entities:
+  parcel_red: [5.2, 3.0, 0.35, 0.0]
+  parcel_blue: [16.0, 3.1, 0.35, 0.0]
+  mobile_cart: [20.8, 3.0, 0.45, 0.0]
+  dynamic_door: [22.8, 14.4, 1.0, 1.5708]
+
+# Semantic colours are deliberately part of the benchmark contract.  Online
+# perception sees only RGB-D pixels; these Gazebo poses remain evaluation-only.
+semantic_classes:
+  parcel_red:       {rgb: [210, 45, 45], tolerance: 72, min_pixels: 45, task_tags: [delivery, retrieval]}
+  parcel_blue:      {rgb: [35, 85, 220], tolerance: 72, min_pixels: 45, task_tags: [delivery, retrieval]}
+  mobile_cart:      {rgb: [235, 145, 25], tolerance: 75, min_pixels: 70, task_tags: [delivery, obstruction]}
+  inspection_panel: {rgb: [40, 205, 85], tolerance: 70, min_pixels: 45, task_tags: [inspection]}
+  charging_station: {rgb: [145, 55, 205], tolerance: 75, min_pixels: 55, task_tags: [charging]}
+  closed_door:      {rgb: [25, 185, 195], tolerance: 70, min_pixels: 80, task_tags: [navigation, obstruction]}
+
+memory:
+  confidence_half_life_sec: 35.0
+  stale_after_sec: 28.0
+  remove_after_sec: 95.0
+  association_radius_m: 1.0
+  confirm_observations: 2
+  task_update_threshold: 0.48
+
+scheduler:
+  idle_rate_hz: 0.5
+  task_rate_hz: 2.0
+  burst_rate_hz: 8.0
+  burst_duration_sec: 4.0
+  stale_boost: 0.25
+  failure_boost: 0.55
+
+regions:
+  lobby:          {x: 3.0,  y: 10.0, radius: 2.5, type: public}
+  office:         {x: 5.0,  y: 16.0, radius: 3.0, type: office}
+  inspection:     {x: 14.0, y: 16.0, radius: 3.0, type: inspection}
+  storage:        {x: 25.0, y: 16.0, radius: 3.0, type: storage}
+  east_junction:  {x: 26.0, y: 10.0, radius: 2.5, type: junction}
+  loading:        {x: 25.0, y: 3.0,  radius: 3.0, type: loading}
+  packing:        {x: 15.0, y: 3.0,  radius: 3.0, type: packing}
+  receiving:      {x: 5.0,  y: 3.0,  radius: 3.0, type: receiving}
+
+topology_edges:
+  - {from: lobby, to: office, cost: 6.0}
+  - {from: office, to: inspection, cost: 9.0}
+  - {from: inspection, to: storage, cost: 11.0}
+  - {from: storage, to: east_junction, cost: 6.0}
+  - {from: east_junction, to: loading, cost: 7.0}
+  - {from: loading, to: packing, cost: 10.0}
+  - {from: packing, to: receiving, cost: 10.0}
+  - {from: receiving, to: lobby, cost: 7.0}
+
+scenarios:
+  mixed_shift:
+    description: package migration, temporary blockage, recovery, and door-state change
+    events:
+      - {at_sec: 20, entity: parcel_red, pose: [23.8, 15.2, 0.35, 0.0], event: OBJECT_MOVED, from_region: receiving, to_region: storage}
+      - {at_sec: 45, entity: mobile_cart, pose: [18.0, 3.0, 0.45, 1.5708], event: EDGE_BLOCKED, edge: packing-loading}
+      - {at_sec: 78, entity: mobile_cart, pose: [20.8, 3.0, 0.45, 0.0], event: EDGE_RECOVERED, edge: packing-loading}
+      - {at_sec: 100, entity: dynamic_door, pose: [22.0, 16.0, 1.0, 1.5708], event: DOOR_CLOSED, edge: inspection-storage}
+      - {at_sec: 135, entity: dynamic_door, pose: [22.8, 14.4, 1.0, 1.5708], event: DOOR_OPEN, edge: inspection-storage}

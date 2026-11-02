@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "instruction": "到617取资料，送到614交给老师并取回回执，再把回执送到619。",
+  "source": "supplied_example_plan_not_model_output",
+  "stops": [
+    {"room": "617", "actions": [{"type": "pickup", "item": "documents"}]},
+    {"room": "614", "actions": [{"type": "deliver", "item": "documents"}, {"type": "pickup", "item": "receipt"}]},
+    {"room": "619", "actions": [{"type": "deliver", "item": "receipt"}]}
+  ]
+}

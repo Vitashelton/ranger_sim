@@ -1,0 +1,83 @@
+initial_time: 0.0
+random_seed: 17
+cycle_sec: 180.0
+
+# NPC anchors are deliberately offset from Ranger observation goals. This
+# prevents co-location while keeping every person inside a legal detection zone.
+regions:
+  lobby: {x: 2.80, y: 0.80, yaw: 0.0, random_radius: 0.05}
+  room_904: {x: 9.00, y: 4.55, yaw: 1.5708, random_radius: 0.04}
+  room_906: {x: 14.35, y: 4.55, yaw: 1.5708, random_radius: 0.04}
+  room_908: {x: 19.15, y: 4.68, yaw: 1.5708, random_radius: 0.03}
+  corridor_junction: {x: 10.40, y: 2.65, yaw: 3.1416, random_radius: 0.02}
+
+npc_physics:
+  body_radius: 0.20
+  body_height: 1.10
+  collision_offset_z: 0.55
+  safety_radius: 0.70
+
+observation_points:
+  lobby: {x: 1.2, y: 2.3, arrival_radius: 0.75}
+  room_904: {x: 8.0, y: 4.15, arrival_radius: 0.60}
+  room_906: {x: 13.35, y: 4.15, arrival_radius: 0.60}
+  room_908: {x: 18.55, y: 4.15, arrival_radius: 0.60}
+  corridor_junction: {x: 11.0, y: 3.75, arrival_radius: 0.60}
+
+detection_zones:
+  lobby: {xmin: 1.4, xmax: 3.3, ymin: 0.5, ymax: 2.8, min_distance: 0.45, max_distance: 2.50}
+  room_904: {xmin: 7.5, xmax: 9.3, ymin: 3.75, ymax: 4.65, min_distance: 0.35, max_distance: 1.80}
+  room_906: {xmin: 12.8, xmax: 14.6, ymin: 3.75, ymax: 4.65, min_distance: 0.35, max_distance: 1.80}
+  room_908: {xmin: 17.3, xmax: 19.4, ymin: 3.75, ymax: 4.90, min_distance: 0.35, max_distance: 1.80}
+  corridor_junction: {xmin: 10.1, xmax: 12.0, ymin: 2.4, ymax: 4.75, min_distance: 0.30, max_distance: 1.60}
+
+search_priors:
+  teacher_zhang:
+    default: {room_904: 0.65, room_906: 0.35}
+    room_904: {room_904: 0.85, room_906: 0.15}
+    room_904_to_room_906: {room_904: 0.55, room_906: 0.45}
+    room_906: {room_904: 0.15, room_906: 0.85}
+  student_li:
+    default: {room_908: 0.70, corridor_junction: 0.30}
+    room_908: {room_908: 0.88, corridor_junction: 0.12}
+    corridor_junction: {room_908: 0.20, corridor_junction: 0.80}
+  visitor:
+    default: {lobby: 1.0}
+    lobby: {lobby: 1.0}
+
+patrols:
+  office_daily:
+    scheduled_time: "08:00"
+    checkpoints: [lobby, room_904, room_906]
+    watch_for: visitor
+    notify_person: teacher_zhang
+
+transitions:
+  room_904_to_room_906:
+    - {x: 9.00, y: 4.55}
+    - {x: 9.20, y: 4.68}
+    - {x: 11.00, y: 4.68}
+    - {x: 12.60, y: 4.68}
+    - {x: 14.15, y: 4.68}
+    - {x: 14.35, y: 4.55}
+
+teacher_zhang:
+  display_name: "张老师"
+  simulated_detection_confidence: 0.94
+  schedule:
+    - {start_sec: 0, end_sec: 60, region: room_904, activity_state: WORKING}
+    - {start_sec: 60, end_sec: 90, transition: room_904_to_room_906, activity_state: WALKING}
+    - {start_sec: 90, end_sec: 180, region: room_906, activity_state: MEETING}
+
+student_li:
+  display_name: "李同学"
+  simulated_detection_confidence: 0.91
+  schedule:
+    - {start_sec: 0, end_sec: 80, region: room_908, activity_state: STUDYING}
+    - {start_sec: 80, end_sec: 180, region: corridor_junction, activity_state: WAITING}
+
+visitor:
+  display_name: "访客"
+  simulated_detection_confidence: 0.86
+  schedule:
+    - {start_sec: 0, end_sec: 180, region: lobby, activity_state: WAITING}

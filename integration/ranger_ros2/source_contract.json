@@ -1,0 +1,27 @@
+{
+  "source": "/home/USER/ranger_ws/src/ranger_ros2/ranger_base/src/ranger_messenger.cpp",
+  "source_sha256": "7aaf9dfa01c0abb70b4d93113b21ba40ea9ba43f692314a71353000a12428e86",
+  "purpose": "Preserve independent SDK feedback channels in existing ROS messages",
+  "applied_to_hardware_workspace": false,
+  "wheel_order": "Must be mapped from SDK channel IDs to physical wheels on the actual chassis",
+  "units": "Unchanged from the selected SDK robot implementation; calibrate sign/zero/unit before planner use",
+  "topic": "/actuator_state",
+  "steering_state_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "drive_state_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "isolated_build": {
+    "success": true,
+    "package": "ranger_base",
+    "command": "colcon build in /tmp/ranger_feedback_build against installed ROS messages and SDK",
+    "hardware_execution": false
+  }
+}
